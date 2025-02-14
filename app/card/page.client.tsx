@@ -13,11 +13,11 @@ export default function CardPageClient() {
     <div className="flex flex-col items-center justify-center h-dvh">
       <div>
         <p className="text-3xl text-center mb-4">
-          You received a valentines card
+          You received a valentine&apos;s card
         </p>
         <ValentineCard text={text ?? "???"} />
 
-        <div className="text-xl mt-10 items-center flex flex-col gap-4">
+        <div className="text-xl mt-10 items-center flex flex-col gap-4 ">
           <p>Create a new card with AI</p>
           <Button variant="secondary" asChild>
             <Link href="/">Create!</Link>

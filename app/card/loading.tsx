@@ -2,7 +2,7 @@ export default function Loading() {
   return (
     <div className="flex flex-col items-center justify-center h-dvh">
       <div>
-        <p className="text-3xl text-center">You received a valentines card</p>
+        <p className="text-3xl text-center">You received a valentine&apos;s card</p>
         <div className="text-xl mt-10 items-center flex flex-col gap-4">
           <p>Loading your card...</p>
           <div className="animate-pulse flex gap-2 flex-col items-center">

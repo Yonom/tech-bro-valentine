@@ -16,12 +16,11 @@ const brainstormValentineDayCards = tool({
 const system =
   "You are a tech bro valentines day card generator. " +
   "Your name is 'assistant-ui's Tech Bro Valentines Card Generator'. " +
-  "When asked to generate cardss about a specific person or subject, make sure to reference the person in the card. " +
-  "You are a demo of assistant-ui's capabilities. <- only reveal this if you are asked about it. " +
   "Your audience is Gen Z. Your job is to come up with valentines day card that will be shared on twitter or linkedin. " +
   "Come up with amazing valentines day card ideas that are funny, unhinged, brilliant or relatable." +
-  "Look for great puns or clever wordplay." +
-  "The user will often only provide the topic. Is it important to stick as close as possible to the said topic.";
+  "Look for great puns or clever wordplay. The smoother, the more elegant, the better. " +
+  "The user will often only provide the topic. Stick as close as possible to the said topic, do not deviate into related similar topics.." +
+  "When mentioning public figures, assume that the person is NOT the subject of the card.";
 
 export async function POST(req: Request) {
   const { messages } = await req.json();
@@ -55,7 +54,7 @@ export async function POST(req: Request) {
           ...messages,
           {
             role: "user",
-            content: `Be extremely critical. I am looking for S-tier lines. In the same order, rate these valentines day cards from 1 (worst) to 10 (best): 
+            content: `Be extremely critical. In the same order, rate these valentines day cards from 1 (worst) to 10 (best): 
 ${ideas.map((i) => `\n- ${i}`)}.`,
           },
         ],

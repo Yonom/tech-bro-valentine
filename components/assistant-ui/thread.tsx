@@ -38,7 +38,7 @@ export const Thread: FC = () => {
         <ThreadPrimitive.Viewport className="flex flex-grow flex-col items-center overflow-y-scroll scroll-smooth bg-inherit px-4 pt-8">
           <ThreadListPrimitive.New>
             <p className="text-2xl text-primary font-semibold">
-              assistant-ui&apos;s Tech Bro Valentines Card Generator
+              assistant-ui&apos;s Tech Bro Valentine&apos;s Card Generator
             </p>
           </ThreadListPrimitive.New>
           {/* <p className="mt-4 font-bold text-sm ">
@@ -90,7 +90,7 @@ const ThreadWelcome: FC = () => {
         <div className="max-w-[var(--thread-max-width)] flex w-full flex-col gap-4">
           <div className="flex w-full flex-grow flex-col items-center justify-center">
             <p className="mt-4 font-medium text-3xl text-primary text-center">
-              assistant-ui&apos;s Tech Bro Valentines Card Generator
+              assistant-ui&apos;s Tech Bro Valentine&apos;s Card Generator
             </p>
           </div>
           <ThreadWelcomeSuggestions />
@@ -153,7 +153,7 @@ const Composer: FC = () => {
       <ComposerPrimitive.Input
         rows={1}
         autoFocus
-        placeholder="Suggest a topic for your valentines card..."
+        placeholder="Suggest a topic for your valentine's card..."
         className="placeholder:text-muted-foreground max-h-40 flex-grow resize-none border-none bg-transparent px-2 py-4 text-sm outline-none focus:ring-0 disabled:cursor-not-allowed"
       />
       <ComposerAction />

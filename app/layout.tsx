@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "assistant-ui's Tech Bro Valentines Card Generator",
-  description: "Generate a valentines card, find your soulmate!", 
+  title: "assistant-ui's Tech Bro Valentine's Card Generator",
+  description: "Generate a valentine's card, find your soulmate!", 
 };
 
 export default function RootLayout({

@@ -82,7 +82,7 @@ export default function ValentineCard({ text }: { text: string }) {
   };
 
   return (
-    <div className="min-w-[19rem] bg-popover shadow-lg border flex flex-col rounded-[18px] overflow-clip">
+    <div className="min-w-[19rem] max-w-[24rem] bg-popover shadow-lg border flex flex-col rounded-[18px] overflow-clip mx-4">
       <Card
         className={`${color} border-0 text-white shadow-md ${comicNeue.className} flex-grow flex flex-col`}
         ref={cardRef}
