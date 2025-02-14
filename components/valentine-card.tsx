@@ -78,7 +78,9 @@ export default function ValentineCard({ text }: { text: string }) {
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(
-      `https://valentine.assistant-ui.com/card?text=${encodeURIComponent(text)}`
+      `https://valentines.assistant-ui.com/card?text=${encodeURIComponent(
+        text
+      )}`
     );
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 2000); // Reset after 2 seconds
@@ -87,7 +89,7 @@ export default function ValentineCard({ text }: { text: string }) {
   const handleTweet = () => {
     window.open(
       `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-        `https://valentine.assistant-ui.com/card?text=${encodeURIComponent(
+        `https://valentines.assistant-ui.com/card?text=${encodeURIComponent(
           text
         )}`
       )}`
@@ -122,7 +124,7 @@ export default function ValentineCard({ text }: { text: string }) {
           <p className="text-lg font-bold">be my valentine?</p>
         </CardContent>
         <CardFooter className="text-xs justify-end text-end font-mono screenshot-only hidden">
-          valentine.assistant-ui.com
+          valentines.assistant-ui.com
         </CardFooter>
       </Card>
       <div className="gap-2 p-2 flex justify-end">
