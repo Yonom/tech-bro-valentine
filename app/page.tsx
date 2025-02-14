@@ -2,6 +2,7 @@
 import { Thread } from "@/components/assistant-ui/thread";
 import { useChatRuntime } from "@assistant-ui/react-ai-sdk";
 import {
+  AssistantCloud,
   AssistantRuntimeProvider,
   makeAssistantToolUI,
   ToolCallContentPart,
@@ -77,10 +78,18 @@ const BrainstormValentineDayCardsUI = makeAssistantToolUI<
   },
 });
 
+const cloud = new AssistantCloud({
+  baseUrl: process.env["NEXT_PUBLIC_ASSISTANT_BASE_URL"]!,
+  authToken: () =>
+    fetch("/api/assistant-ui-token", { method: "POST" })
+      .then((r) => r.json())
+      .then((r) => r.token),
+});
+
 export default function Home() {
   const runtime = useChatRuntime({
     api: "/api/chat",
-    unstable_humanToolNames: ["brainstormValentineDayCards"],
+    cloud,
   });
 
   return (
