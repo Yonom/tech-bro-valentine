@@ -1,27 +1,37 @@
-"use client";
+import { Metadata } from "next";
+import CardPageClient from "./page.client";
 
-import { Button } from "@/components/ui/button";
-import ValentineCard from "@/components/valentine-card";
-import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<{ text?: string }>;
+}): Promise<Metadata> {
+  const text = (await searchParams).text ?? "Happy Valentine's Day!";
+  const ogImageUrl = `/api/og?text=${encodeURIComponent(text)}`;
+
+  return {
+    title: "Your Valentine's Card",
+    description: "A special Valentine's card just for you!",
+    openGraph: {
+      title: "Your Valentine's Card",
+      description: "A special Valentine's card just for you!",
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Your Valentine's Card",
+      description: "A special Valentine's card just for you!",
+      images: [ogImageUrl],
+    },
+  };
+}
 
 export default function CardPage() {
-  const searchParams = useSearchParams();
-  const text = searchParams.get("text");
-
-  return (
-    <div className="flex flex-col items-center justify-center h-dvh">
-      <div>
-        <p className="text-3xl text-center">You received a valentines card</p>
-        <ValentineCard text={text ?? "???"} />
-
-        <div className="text-xl mt-10 items-center flex flex-col gap-4">
-          <p>Create a new card with AI</p>
-          <Button variant="secondary" asChild>
-            <Link href="/">Create!</Link>
-          </Button>
-        </div>
-      </div>
-    </div>
-  );
+  return <CardPageClient />;
 }

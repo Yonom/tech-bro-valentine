@@ -5,7 +5,6 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Comic_Neue } from "next/font/google";
 import { Button } from "@/components/ui/button";
 import { DownloadIcon, LinkIcon, TwitterIcon } from "lucide-react";
-import { Metadata } from "next";
 import { domToPng } from "modern-screenshot";
 
 export const comicNeue = Comic_Neue({
@@ -40,37 +39,6 @@ const CARDCOLORS = [
   "bg-indigo-950",
 ];
 
-export async function generateMetadata({
-  searchParams,
-}: {
-  searchParams: { text?: string };
-}): Promise<Metadata> {
-  const text = searchParams.text ?? "Happy Valentine's Day!";
-  const ogImageUrl = `/api/og?text=${encodeURIComponent(text)}`;
-
-  return {
-    title: "Your Valentine's Card",
-    description: "A special Valentine's card just for you!",
-    openGraph: {
-      title: "Your Valentine's Card",
-      description: "A special Valentine's card just for you!",
-      images: [
-        {
-          url: ogImageUrl,
-          width: 1200,
-          height: 630,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Your Valentine's Card",
-      description: "A special Valentine's card just for you!",
-      images: [ogImageUrl],
-    },
-  };
-}
-
 export default function ValentineCard({ text }: { text: string }) {
   const color = CARDCOLORS[text.length % CARDCOLORS.length];
   const [isCopied, setIsCopied] = useState(false);
@@ -91,7 +59,7 @@ export default function ValentineCard({ text }: { text: string }) {
       `https://twitter.com/intent/tweet?text=${encodeURIComponent(
         `https://valentines.assistant-ui.com/card?text=${encodeURIComponent(
           text
-        )}`
+        ).replaceAll("!", "%21")}`
       )}`
     );
   };
